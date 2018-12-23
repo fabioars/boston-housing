@@ -13574,7 +13574,13 @@ Desvio padrão dos preços: $165,171.13
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Resposta:</strong> O objetivo é criar um modelo que saiba generalizar bem com novos dados, por isso o conjunto de dados são separados. Caso treinarmos o modelo com os dados de teste não temos como garantir a capacidade de generalização, já que não temos casos reais para testar.</p>
+<p><strong>Resposta:</strong> O objetivo é construir um modelo que seja generalizado a qualquer novo dado não visto, então separar o conjunto de dados serve para avaliarmos como o modelo treinado está litando com novos dados.
+Caso não temos o conjunto de dados de teste não conseguiremos avaliar a eficiência do modelo, que pode está com <em>underfitting</em> ou <em>ovefitting</em>.</p>
+<p>Caso o modelo esteja com <em>overfitting</em>, quer dizer que o modelo decorou os dados ao invés de aprender com eles, então o modelo não generaliza bem.</p>
+<p>Caso esteja com <em>undefitting</em>, quer dizer que o modelo generaliza tanto que não dá resultados satisfatórios quando exposto a novos dados.</p>
+<p><img src="https://qph.fs.quoracdn.net/main-qimg-20eb0700f416f6c159c18fa2d3a8747c" alt="Exemplos de underfitting e overfitting">
+Fonte: <a href="https://www.quora.com/In-machine-learning-what-s-the-purpose-of-splitting-data-up-into-test-sets-and-training-sets">Quora</a>. 23/12/2018 - às 18:09</p>
+<p>Para garantir a acurácia do modelo, é interessante verificar se o dataset está consistende e possui dados o suficiente para treinar e testar o modelo e nunca devemos utilizar o conjunto de testes para treinar nosso modelo.</p>
 
 </div>
 </div>
@@ -13801,9 +13807,16 @@ Validação-cruzada k-fold é uma técnica para avaliação de modelos preditivo
 </li>
 <li>Compare as avaliações para saber se seu modelo é consistente</li>
 </ol>
-<ul>
-<li>Essa técnica ajuda a remover algum tipo de viés que o dataset possa ter e tenta verificar se o modelo generaliza bem, independente do conjunto de dados.</li>
-</ul>
+<p>Podemos usar a média dos resultados da validação cruzada para a tabela do <em>grid search</em>, para escolhermos o modelo mais consistente possível, utilizando os seguintes passos:</p>
+<ol>
+<li>Para cada célula da tabela de <em>grid search</em>:<ol>
+<li>Selecione seus hyperparâmetros</li>
+<li>Use a validação cruzada e guarde a média da precisão do modelo</li>
+<li>Vá para a próxima célula do <em>grid search</em></li>
+</ol>
+</li>
+</ol>
+<p>Fonte: <a href="https://www.kaggle.com/questions-and-answers/30560">Kaggle</a></p>
 
 </div>
 </div>
